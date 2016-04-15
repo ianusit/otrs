@@ -1,4 +1,4 @@
-FROM debian/jessie
+FROM debian:jessie
 
 MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
