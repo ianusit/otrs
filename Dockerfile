@@ -3,7 +3,7 @@ FROM debian:jessie
 MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apt-get update &&\
-    apt-get install -y wget zip libdbd-pg-perl libapache2-mod-perl2 libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl sudo cron &&\
+    apt-get install -y wget zip apache2 libdbd-pg-perl libapache2-mod-perl2 libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl sudo cron &&\
     wget http://ftp.otrs.org/pub/otrs/otrs-5.0.9.zip &&\
     unzip /otrs-5.0.9.zip &&\
     rm /otrs-5.0.9.zip &&\
