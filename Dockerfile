@@ -18,4 +18,11 @@ RUN apt-get update &&\
     a2enmod filter &&\
     a2enmod headers &&\
     ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/conf-enabled/zzz_otrs.conf &&\
-    apt-get remove -y wget zip
+    apt-get remove -y wget zip &&\
+    apt-get autoremove -y
+    
+COPY files/start.sh /
+
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
