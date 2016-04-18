@@ -20,7 +20,7 @@ RUN apt-get update &&\
     a2enmod filter &&\
     a2enmod headers &&\
     ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/conf-enabled/zzz_otrs.conf &&\
-    apt-get remove -y wget tar gzip exim4 exim4-base exim4-config exim4-daemon-light &&\
+    apt-get remove -y wget exim4 exim4-base exim4-config exim4-daemon-light &&\
     apt-get autoremove -y &&\
     apt-get clean
 
