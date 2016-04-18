@@ -8,9 +8,11 @@ RUN apt-get update &&\
     unzip /otrs-5.0.9.zip &&\
     rm /otrs-5.0.9.zip &&\
     mv otrs-5.0.9 /opt/otrs &&\
+    cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm &&\
+    cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon &&\
     useradd -d /opt/otrs/ -c 'OTRS user' otrs &&\
     usermod -G www-data otrs &&\
-    perl /opt/otrs/bin/otrs.SetPermissions.pl --web-group=www-data &&\
+    perl /opt/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data /opt/otrs &&\
     sudo -u otrs /opt/otrs/bin/Cron.sh start &&\
     a2enmod ssl &&\
     a2enmod perl &&\
