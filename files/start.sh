@@ -1,4 +1,8 @@
 #!/bin/sh
+sed -i "s/SERVERNAME/${SERVERNAME}/g" /etc/apache2/sites-enabled/000-default.conf
+sed -i "s/SSLCERT/${SSLCERT}/g" /etc/apache2/sites-enabled/000-default.conf
+sed -i "s/SSLKEY/${SSLKEY}/g" /etc/apache2/sites-enabled/000-default.conf
+sed -i "s/EMAIL/${EMAIL}/g" /etc/apache2/sites-enabled/000-default.conf
 /etc/init.d/cron start
 /etc/init.d/apache2 start
 sudo -u otrs /opt/otrs/bin/otrs.Console.pl Admin::Package::Reinstall OTRSMasterSlave
