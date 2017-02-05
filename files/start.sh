@@ -1,4 +1,5 @@
 #!/bin/sh
+cp /defaults/* /etc/apache2/sites-enabled/
 sed -i "s/SERVICENAME/${SERVICENAME}/g" /etc/apache2/sites-enabled/000-default.conf
 sed -i "s/EMAIL/${EMAIL}/g" /etc/apache2/sites-enabled/000-default.conf
 /etc/init.d/cron start
