@@ -24,7 +24,7 @@ RUN apt-get update &&\
     apt-get autoremove -y &&\
     apt-get clean
 
-COPY files/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY files/defaults /defaults
 COPY files/start.sh /
 
 RUN chmod +x /start.sh
