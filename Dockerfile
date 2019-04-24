@@ -1,13 +1,13 @@
-FROM debian:jessie
+FROM debian:stretch
 
 MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apt-get update &&\
     apt-get install -y wget gzip tar apache2 libdbd-pg-perl libapache2-mod-perl2 libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl sudo cron &&\
-    wget http://ftp.otrs.org/pub/otrs/otrs-5.0.34.tar.gz &&\
-    tar xfz /otrs-5.0.34.tar.gz &&\
-    rm /otrs-5.0.34.tar.gz &&\
-    mv otrs-5.0.34 /opt/otrs &&\
+    wget http://ftp.otrs.org/pub/otrs/otrs-6.0.16.tar.gz &&\
+    tar xfz /otrs-6.0.16.tar.gz &&\
+    rm /otrs-6.0.16.tar.gz &&\
+    mv otrs-6.0.16 /opt/otrs &&\
     cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm &&\
     cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon &&\
     useradd -d /opt/otrs/ -c 'OTRS user' otrs &&\
