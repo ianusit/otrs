@@ -3,7 +3,7 @@ FROM debian:stretch
 MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apt-get update &&\
-    apt-get install -y sendmail wget gzip tar apache2 libdbd-pg-perl libapache2-mod-perl2 libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl libcrypt-ssleay-perl libdatetime-perl libdbd-mysql-perl libnet-ldap-perl libwww-perl sudo cron &&\
+    apt-get install -y wget gzip tar apache2 libdbd-pg-perl libapache2-mod-perl2 libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl libcrypt-ssleay-perl libdatetime-perl libdbd-mysql-perl libnet-ldap-perl libwww-perl sudo cron &&\
     wget http://ftp.otrs.org/pub/otrs/otrs-6.0.19.tar.gz &&\
     tar xfz /otrs-6.0.19.tar.gz &&\
     rm /otrs-6.0.19.tar.gz &&\
