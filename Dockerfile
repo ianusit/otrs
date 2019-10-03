@@ -8,6 +8,8 @@ RUN apt-get update &&\
     tar xfz /otrs-6.0.21.tar.gz &&\
     rm /otrs-6.0.21.tar.gz &&\
     mv otrs-6.0.21 /opt/otrs &&\
+    sed -i "/^MaxRequestsPerChild/s/4000/400/g" /opt/otrs/scripts/apache2-httpd.include.conf &&\
+    ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/conf-enabled/zzz_otrs.conf &&\
     cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm &&\
     cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon &&\
     sed -i "s/WidgetSimple Collapsed/WidgetSimple Expanded/g" /opt/otrs/Kernel/Output/HTML/Templates/Standard/AgentTicketMerge.tt &&\
@@ -21,8 +23,6 @@ RUN apt-get update &&\
     a2enmod deflate &&\
     a2enmod filter &&\
     a2enmod headers &&\
-    sed -i "/^MaxRequestsPerChild/s/4000/400/g" /opt/otrs/scripts/apache2-httpd.include.conf &&\
-    ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/conf-enabled/zzz_otrs.conf &&\
     apt-get remove -y wget exim4 exim4-base exim4-config exim4-daemon-light &&\
     apt-get autoremove -y &&\
     apt-get clean
