@@ -10,6 +10,8 @@ RUN apt-get update &&\
     mv otrs-6.0.21 /opt/otrs &&\
     cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm &&\
     cp /opt/otrs/var/cron/otrs_daemon.dist /opt/otrs/var/cron/otrs_daemon &&\
+    sed -i "s/WidgetSimple Collapsed/WidgetSimple Expanded/g" /opt/otrs/Kernel/Output/HTML/Templates/Standard/AgentTicketMerge.tt &&\
+    sed -i "s/"1"/"0"/g" /opt/otrs/Kernel/Output/HTML/Templates/Standard/AgentTicketMerge.tt &&\
     useradd -d /opt/otrs/ -c 'OTRS user' otrs &&\
     usermod -G www-data otrs &&\
     perl /opt/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data /opt/otrs &&\
