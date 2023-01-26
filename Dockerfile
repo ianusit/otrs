@@ -4,10 +4,10 @@ MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apt-get update &&\
     apt-get install -y wget gzip tar apache2 libdbd-pg-perl libapache2-mod-perl2 libmoo-perl libtimedate-perl libnet-dns-perl libio-socket-ssl-perl libpdf-api2-perl libsoap-lite-perl libtext-csv-xs-perl libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl libtemplate-perl libcrypt-ssleay-perl libdatetime-perl libdbd-mysql-perl libnet-ldap-perl libwww-perl sudo cron &&\
-    wget http://ftp.otrs.org/pub/otrs/otrs-6.0.27.tar.gz &&\
-    tar xfz /otrs-6.0.27.tar.gz &&\
-    rm /otrs-6.0.27.tar.gz &&\
-    mv otrs-6.0.27 /opt/otrs &&\
+    wget https://download.znuny.org/releases/otrs-6.0.48.tar.gz &&\
+    tar xfz /otrs-6.0.48.tar.gz &&\
+    rm /otrs-6.0.48.tar.gz &&\
+    mv otrs-6.0.48 /opt/otrs &&\
     sed -i "/^MaxRequestsPerChild/s/4000/400/g" /opt/otrs/scripts/apache2-httpd.include.conf &&\
     ln -s /opt/otrs/scripts/apache2-httpd.include.conf /etc/apache2/conf-enabled/zzz_otrs.conf &&\
     cp /opt/otrs/Kernel/Config.pm.dist /opt/otrs/Kernel/Config.pm &&\
